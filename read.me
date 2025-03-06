@@ -1,0 +1,17 @@
+code defines an ImageAnalyzer class that performs the following steps:
+
+API Configuration:
+It retrieves an API key from environment variables (using the flutter_dotenv package).
+
+Image Preparation:
+It reads the provided image file as bytes and encodes it to Base64 format.
+
+API Request:
+The code sends a POST request to an image analysis API endpoint (originally the Google Vision API) with a JSON payload that contains the Base64-encoded image and a request for safe search detection.
+
+Response Processing:
+If the API call succeeds (HTTP status 200), the response is parsed to extract safe search annotations. The function checks if the image is flagged as inappropriate (e.g., if it has a 'LIKELY' or 'VERY_LIKELY' rating for adult or violent content).
+
+Result:
+The function returns false if inappropriate content is detected; otherwise, it returns true.
+
